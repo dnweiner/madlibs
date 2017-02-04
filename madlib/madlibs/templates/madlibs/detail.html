@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+	<title>{{ story }} Details</title>
+	<!--<link rel="stylesheet" type="text/css" href="styling.css"/>-->
+	<style>
+		body {
+			background-color: turquoise;
+		}
+		#home {
+			float: right;
+			margin-right: 2%;
+		}
+	</style>
+</head>
+<body>
+	<h1>Fill in the blanks for {{ story }}</h1>
+	<form id='home' action="{% url 'madlibs:home_button' %}">
+		<input type='submit' value='Back to home'>
+	</form>
+	{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+	<form action="{% url 'madlibs:fill' story.id %}" method="post">
+	{% csrf_token %}
+	<!-- generate a number of fields based on the story's included number of blanks and what each goes to -->	
+	{% for blank in blank_types %}
+		<input type="text" name="blank{{ forloop.counter }}" id="blank{{ forloop.counter }}" placeholder="{{ blank }}">
+		<br>
+	{% endfor %}
+	{% for word in replace_words %}
+		<input type="hidden" name="word{{ forloop.counter}}" id="word{{ forloop.counter }}" value="{{ word }}">
+	{% endfor %}
+	<input type="submit" value="Let's go!" />
+	</form>
+	<form action="{% url 'madlibs:randomize' story.id %}" method='post'>
+	{% csrf_token %}
+	{% for blank in blank_types %}
+		<input type="hidden" name="type{{ forloop.counter }}" id="type{{ forloop.counter }}" value="{{ blank }}">
+	{% endfor %}
+	{% for word in replace_words %}
+		<input type="hidden" name="word{{ forloop.counter}}" id="word{{ forloop.counter }}" value="{{ word }}">
+	{% endfor %}
+		<input type='submit' value='Randomly fill'>
+	</form>
+</body>
+</html>

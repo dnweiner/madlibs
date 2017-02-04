@@ -1,0 +1,6 @@
+this is the project
+
+superuser info:
+	username: admin
+	email: --my wustl email--
+	password: --my private password--

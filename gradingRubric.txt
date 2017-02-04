@@ -1,0 +1,35 @@
+CSE 330 Creative Project Rubric
+Danny Weiner and Emily Coco
+
+Total points – 100
+
+5pts – Submitting rubric to Bitbucket
+
+20pts – Creative portion
+	IDEAS:
+users can upload own text files 
+	users can download filled-in Mad Libs
+
+10pts –best practices
+	Code is well formatted and easy to read
+Safe from SQL Injection attacks
+passes validator
+
+5pts – usability
+Site is intuitive to use/navigate
+	Site is visually appealing
+
+
+15pts – database is created and managed correctly
+	Effective types used
+	Queries obtain correct information
+	
+
+30pts – Text analyzer functions correctly, creating Mad Lib type blanks from a given text file
+	use NLTK to tag types of words 
+	replace certain words with blanks so that the input from the user can be 
+added to the text file
+
+15pts – Effective use of new technologies
+	Django, Python
+

@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+	<title>Story Upload</title>
+	<!--<link rel="stylesheet" type="text/css" href="styling.css"/>-->
+	<style>
+		body {
+			background-color: turquoise;
+		}
+		#home {
+			float: right;
+			margin-right: 2%;
+		}
+	</style>
+</head>
+<body>
+	<h1>Upload a story</h1>
+	<form id='home' action="{% url 'madlibs:home_button' %}">
+		<input type='submit' value='Back to home'>
+	</form>
+	<form action="{% url 'madlibs:upload_story' %}" method='post' enctype='multipart/form-data'>
+		{% csrf_token %}	
+	<!--	<input id='story_name' type='text' name='story_name' placeholder='Story Name'>
+		<input id='story_file' type='file' name='story_file'>-->
+		{{ form.as_p }}
+		<input type='submit' value='Upload'>
+	</form>
+</body>
+</html>

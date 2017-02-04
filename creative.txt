@@ -1,0 +1,21 @@
+creative.txt
+
+Danny Weiner - 435140
+Emily Coco - 429297
+
+Danny's instance: http://ec2-54-213-147-183.us-west-2.compute.amazonaws.com:8080
+
+For the creative portion, we added several features which required more work to implement than their brief descriptions suggest:
+
+-users can upload stories to the database
+-users can download completed stories as newly-generated txt files
+-back to home button
+-users can populate a story with randomly-generated words and numbers
+-added words are underlined
+
+TA Login instructions:
+No login required!
+
+NOTE: does not play nicely with files with blank lines in them: otherwise, works
+
+textfiles.com/stories has an assortment of txt files for your perusal and uploading needs. We found this by Googling "txt file stories"

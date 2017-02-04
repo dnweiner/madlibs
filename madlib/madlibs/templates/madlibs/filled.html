@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+	<title>{{ story }} Fill</title>
+	<style>
+		body {
+			background-color: turquoise;
+		}
+		#home {
+			float: right;
+			margin-right: 2%;
+		}
+	</style>
+</head>
+<body>
+	<h1>Take a look at the newly-completed {{ story }}</h1>
+	<form id='home' action="{% url 'madlibs:home_button' %}">
+		<input type='submit' value='Back to home'>
+	</form>
+	{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+	{% csrf_token %}
+	{% autoescape off %}
+		{% for newline in newlines %}
+			<p>{{ newline }}</p>
+		{% endfor %}
+	{% endautoescape %}
+	
+	<form action="{% url 'madlibs:download_story' %}" method='post' enctype='multipart/form-data'>
+		{% csrf_token %}	
+		<input type='hidden' name='filepath' value="{{ filepath }}">
+		<input type='submit' value='Download'>
+	</form>
+	
+</body>
+</html>

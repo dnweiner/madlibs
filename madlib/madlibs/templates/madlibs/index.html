@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+	<title>Madlibs</title>
+	<style>
+		body {
+			background-color: turquoise;
+		}
+	</style>
+</head>
+
+
+<body>
+	<h1>Welcome to Emily and Danny's Madlibs Site!</h1>
+	{% csrf_token %}
+	{% if story_list %}
+		<ul>
+		{% for story in story_list %}
+			<li><a href="{% url 'madlibs:detail' story.id %}">{{ story.story_name }}</a></li>
+		{% endfor %}
+		</ul>
+	{% else %}
+		<p>No stories are available.</p>
+	{% endif %}
+	<br>
+	<form id='home' action="{% url 'madlibs:upload_story' %}">
+		<input type='submit' value='Upload a story'>
+	</form>
+</body>
+</html>
